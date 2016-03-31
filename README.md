@@ -5,3 +5,4 @@ Things to Do :
 - [ ] Decide what py profound should do?
 - [ ] High level UI
 - [ ] Architecture? - Should it be web or desktop-based
+- [ ] Add Slack
