@@ -6,3 +6,11 @@ Things to Do :
 - [ ] High level UI
 - [ ] Architecture? - Should it be web or desktop-based
 - [ ] Add Slack
+
+
+Development 
+
+To Run:
+
+1. npm install -g electron-prebuilt
+2. electron .
