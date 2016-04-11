@@ -27,3 +27,7 @@ API:
    Requires POST parameters to be x-www-form-encoded
    * separator:"tab" or "comma" 
    * file_path: full file path to the uploaded file
+
+## License
+
+PyProfound is released under the [BSD 2-Clause license](https://github.com/SurukamAnalytics/pyprofound/blob/master/LICENSE.md).
