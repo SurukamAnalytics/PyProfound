@@ -1,7 +1,6 @@
 /*
  * Module dependencies.
  */
-
 var express = require('express'),
     bodyParser = require('body-parser'),
     errorHandler = require('error-handler'),
@@ -18,10 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());
-/*app.use(methodOverride());*/
-/*app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-*/
+
 var env = process.env.NODE_ENV || 'development';
 // error handlers
 // development error handler
@@ -52,7 +48,5 @@ app.post('/ml-api/classify', api.classify);
 app.listen(8000, function() {
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-
-/*console.log(woeid_data.length)*/
 
 /*killall -9 node*/

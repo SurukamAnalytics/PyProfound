@@ -1,6 +1,5 @@
 exports.classify = function(req, res) {
     var PythonShell = require('python-shell');
-    console.log("Its hitting the express function!")
     csv_file_path = req.body.file_path
     separator = req.body.separator
     var options = {
@@ -15,11 +14,8 @@ exports.classify = function(req, res) {
         res.send({"status":500,"error":err});
       } 
       else{
-        res.send({"status":200,"score":results[0]});
+        res.send({"status":200,"scores":results});
       } 
-      // results is an array consisting of messages collected during execution
-      /*console.log('results: %j', results);
-      res.send(results)*/
     });
     
     //res.send({"status":200})
