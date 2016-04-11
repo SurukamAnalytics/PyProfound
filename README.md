@@ -1,4 +1,4 @@
-# pyprofound
+# PyProfound
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](LICENSE.md)
 
 An easy to use GUI for sklearn, nltk and other python packages
