@@ -1,0 +1,48 @@
+{
+	"id": "ba72db78-d672-0158-c466-d100926ccbe7",
+	"name": "pyprofound",
+	"description": "",
+	"order": [
+		"89f3f950-17ef-e412-bb1f-65a74b3d83c4"
+	],
+	"folders": [],
+	"timestamp": 1460369563381,
+	"owner": "257339",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "89f3f950-17ef-e412-bb1f-65a74b3d83c4",
+			"headers": "",
+			"url": "localhost:8000/ml-api/classify",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "ba72db78-d672-0158-c466-d100926ccbe7",
+			"data": [
+				{
+					"key": "separator",
+					"value": "comma",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "file_path",
+					"value": "/home/surukam/_/pyprofound/ml-api/input/iris.csv",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "ml-api-classify",
+			"description": "Requires POST parameters to be x-www-form-encoded\nseparator:\"tab\" or \"comma\"\nfile_path: full file path to the uploaded file",
+			"descriptionFormat": "html",
+			"time": 1460369563380,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
