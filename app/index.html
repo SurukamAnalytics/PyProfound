@@ -6,12 +6,15 @@
     <title>PyProfound</title>    
   </head>
   <body>   
-    <h1> Hello Everyone!! </h1>
+  <!-- <div class="settings">Settings</div>
+  <div class="close">Close</div> -->
+  <div id="main" class="container-fluid">
+    <h1> PyProfound </h1>
     <button id="upload">Upload</button>
     <button id="classify">Classify</button>
     <button id="export">Export</button>
     <textarea id="editor" style="width: 400px; height: 300px;"></textarea>
-
+  </div>  
   <!--In Electron, this is the correct way to include jQuery-->
 	<script>window.$ = window.jQuery = require('./js/jquery-1.12.3.min.js');</script>
 	<script src="./js/script.js"></script>
