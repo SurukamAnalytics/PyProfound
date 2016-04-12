@@ -4,6 +4,7 @@
   "description": "An easy to use GUI for sklearn, nltk and other python packages",
   "main": "main.js",
   "scripts": {
+    "start": "electron main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "dependencies": {
     "react": "15.0.1",
     "react-dom": "15.0.1",
-    "redux": "3.4.0"
+    "redux": "3.4.0",
+    "scp2": "~0.2.2"
   }
 }

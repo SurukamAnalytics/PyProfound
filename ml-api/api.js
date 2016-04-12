@@ -6,7 +6,7 @@ exports.classify = function(req, res) {
       mode: 'text',
       pythonOptions: ['-u'],
       scriptPath: './python-scripts',
-      args: [csv_file_path, separator]
+      args: [csv_file_path,separator,first_column_index,first_row_header]
     };
 
     PythonShell.run('classify.py', options, function (err, results) {
