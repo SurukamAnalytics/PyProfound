@@ -21,7 +21,14 @@ app.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600,icon:path.join(__dirname, '/app/img/surukam_logo.png')});
+  mainWindow = new BrowserWindow(
+    {
+     /*height: 700,
+     width: 68,*/
+     icon:path.join(__dirname, '/app/img/surukam_logo.png'),
+     backgroundColor:"blue"
+     /*resizable: false*/
+    });
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');

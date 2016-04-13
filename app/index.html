@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <title>PyProfound</title>    
-  </head>
-  <body>   
-  <!-- <div class="settings">Settings</div>
-  <div class="close">Close</div> -->
-  <div id="main" class="container-fluid">
-    <h1> PyProfound </h1>
-    <button id="upload">Upload</button>
-    <button id="classify">Classify</button>
-    <button id="export">Export</button>
-    <textarea id="editor" style="width: 400px; height: 300px;"></textarea>
-  </div>  
-  <!--In Electron, this is the correct way to include jQuery-->
-	<script>window.$ = window.jQuery = require('./js/jquery-1.12.3.min.js');</script>
-	<script src="./js/script.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js">
+        </script>
+        <title>
+            PyProfound
+        </title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div id="main" class="container-fluid text-center">
+            <h1 class="text-center">
+                PyProfound
+            </h1>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-sm-4">
+                    <button id="upload" type="submit" class="btn btn-primary">
+                        Upload
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button id="classify" type="submit" class="btn btn-primary">
+                        Classify
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    .
+                    <button id="classify" type="submit" class="btn btn-primary">
+                        Export
+                    </button>
+                </div>
+            </div>
+            <textarea id="editor" class="text-center" style="width: 200px;height: 100px;margin-top: 20px; display: block;margin-left: auto;margin-right: auto;resize: none;">
+            </textarea>
+        </div>
+        <!-- In Electron, this is the correct way to include jQuery -->
+        <script>
+            window.$ = window.jQuery = require('./js/jquery-1.12.3.min.js');
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+        </script>
+        <script src="./js/script.js">
+        </script>
+    </body>
 </html>
