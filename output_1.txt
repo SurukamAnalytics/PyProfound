@@ -1,0 +1,1 @@
+["Nearest-Neighbors 0.966666666667","Linear-SVM 0.916666666667","RBF-SVM 0.966666666667","Decision-Tree 0.966666666667","Random-Forest 0.95","AdaBoost 0.95","Naive-Bayes 0.966666666667","Linear-Discriminant-Analysis 0.983333333333","Quadratic-Discriminant-Analysis 0.983333333333"]

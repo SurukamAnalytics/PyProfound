@@ -111,4 +111,103 @@ body {
     background-size: 24px 24px;
     right: 6px;
 }
-
+ul#navmenu, ul.sub1, ul.sub2{
+    list-style-type: none;
+}
+ul#navmenu li {
+    position: relative;
+    float: left;
+    width:200px;
+    text-align: center; 
+    margin-right: 220px;
+}
+ul#navmenu li#test_or_train button{
+    margin-left: 0px;
+}
+ul#navmenu li#upload1 button{
+    margin-left: 0px;
+}
+ul#navmenu li#export1 button{
+    margin-left: -25px;
+}
+button#test_or_train {
+    margin-left: -25px; 
+}
+ul#navmenu .sub1 button{
+    margin-top: 10px;
+}
+ul#navmenu ul.sub1{
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 35px;
+    left: 0px;
+}
+ul#navmenu ul.sub2{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    font-size: 20px;
+}
+ul#navmenu li:hover  .sub1{
+    display: block;
+}
+ul#navmenu .sub1 li:hover .sub2{
+    display: block;
+}  
+.darrow{
+    font-size: 11pt;
+    position: absolute;
+    top: 6px;
+    right: 33px;
+}
+.rarrow{
+    font-size: 11pt;
+    position: absolute;
+    top: 15px;
+    right: 47px;
+}
+ul#navmenu > #sections_panel{
+    position: absolute;
+    height: 0px;
+    width: 300px;
+    background: #000;
+    top: 35px;
+    left: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10000000000;
+    transition: height 0.3s linear 0s;
+}
+ul#navmenu > #sections_panel > #sections_panel1{
+    position: absolute;
+    height: 0px;
+    width: 300px;
+    background: #000;
+    top: 0px;
+    left: 100px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000000000;
+    transition: height 0.3s linear 0s;
+}
+ul#navmenu > #sections_panel2{
+    position: absolute;
+    height: 0px;
+    width: 300px;
+    background: #000;
+    top: 35px;
+    left: 0px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10000000000;
+    transition: height 0.3s linear 0s;
+}
+/*ul#navmenu > #section_panel > div{
+    background: #333;
+    padding: :20px;
+    height: 150px;
+    margin: 10px;
+    color: #FC0;
+}

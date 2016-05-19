@@ -19,22 +19,116 @@
                 PyProfound
             </h1>
             <div class="row" style="margin-top: 20px">
-                <div class="col-sm-4">
-                    <button id="upload" type="submit" class="btn btn-primary">
-                        Upload
-                    </button>
-                </div>
-                <div class="col-sm-4">
-                    <button id="classify" type="submit" class="btn btn-primary">
-                        Classify
-                    </button>
-                </div>
-                <div class="col-sm-4">
-                    .
-                    <button id="classify" type="submit" class="btn btn-primary">
-                        Export
-                    </button>
-                </div>
+                <ul id="navmenu">
+                    <li id="upload1"><div class="col-sm-4">
+                            <button id="upload" type="submit" class="btn btn-primary">
+                                Upload
+                            </button>
+                        </div>
+                    </li>
+                    <li id="test_or_train"><div class="col-sm-4" id="section_btn_holder">
+                            <button onclick="toggleNavPanel('sections_panel')" id="test_or_train" type="submit" class="btn btn-primary">
+                                Train / Test <span id="navarrow">&#9662;</span>
+                            </button>
+                            </div><!--<span class="darrow">&#9660;</span>-->
+                            <div id="sections_panel">
+                                <div><ul class="sub1">
+                                    <li><div class="col-sm-4">
+                                            <button id="classify" type="submit" class="btn btn-primary">
+                                                Train
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li><div class="col-sm-4" id="section_btn_holder1">
+                                            <button onclick="toggleNavPanel1('sections_panel1')" id="test" type="submit" class="btn btn-primary">
+                                                Test <span id="navarrow1">&#9654;</span>
+                                            </button>
+                                        </div><!--<span class="rarrow">&#9654;</span>-->
+                                            <div id="sections_panel1">
+                                                <ul class="sub2">
+                                                    <li><div class="col-sm-4">
+                                                            <button id="AdaBoost" type="submit" class="btn btn-primary">
+                                                                AdaBoost
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Decision-Tree" type="submit" class="btn btn-primary">
+                                                                Decision-Tree
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Linear-Discriminant-Analysis" type="submit" class="btn btn-primary">
+                                                                Linear-Discriminant-Analysis
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Linear-SVM" type="submit" class="btn btn-primary">
+                                                                Linear-SVM
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Naive-Bayes" type="submit" class="btn btn-primary">
+                                                                Naive-Bayes
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Nearest-Neighbors" type="submit" class="btn btn-primary">
+                                                                Nearest-Neighbors
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Quadratic-Discriminant-Analysis" type="submit" class="btn btn-primary">
+                                                                Quadratic-Discriminant-Analysis
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="Random-Forest" type="submit" class="btn btn-primary">
+                                                                Random-Forest
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                     <li><div class="col-sm-4">
+                                                            <button id="RBF-SVM" type="submit" class="btn btn-primary">
+                                                                RBF-SVM
+                                                            </button>
+                                                        </div>
+                                                     </li>
+                                                </ul>
+                                            </div>
+                                     </li>
+                                </ul></div>
+                            </div>
+                    </li>
+                    <li id="export1"><div class="col-sm-4" id="section_btn_holder2">
+                            <button onclick="toggleNavPanel2('sections_panel2')" id="test_or_train" type="submit" class="btn btn-primary">
+                                Export Train / Export Test <span id="navarrow2">&#9662;</span>
+                            </button>
+                            </div><!--<span class="darrow">&#9660;</span>-->
+                            <div id="sections_panel2">
+                                <div><ul class="sub1">
+                                    <li><div class="col-sm-4">
+                                            <button id="export_train" type="submit" class="btn btn-primary">
+                                                Export-Train
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li><div class="col-sm-4">
+                                            <button id="export_test" type="submit" class="btn btn-primary">
+                                                Export-Test
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul></div>
+                            </div>
+                    </li>
+                </ul>
             </div>
             <textarea id="editor" class="text-center" style="width: 200px;height: 100px;margin-top: 20px; display: block;margin-left: auto;margin-right: auto;resize: none;">
             </textarea>

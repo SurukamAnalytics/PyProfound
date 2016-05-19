@@ -43,7 +43,8 @@ app.use(function(err, req, res, next) {
 
 //Send x-www-form-urlencoded post data
 app.post('/ml-api/classify', api.classify);
-
+app.post('/ml-api/test',api.test);
+/*app.post('/ml-api/export', api.export);*/
 // Start server
 app.listen(8000, function() {
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
