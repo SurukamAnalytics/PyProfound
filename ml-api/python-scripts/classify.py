@@ -7,6 +7,11 @@ warnings.warn = warn
 import sys,os
 import pandas as pd
 import numpy as np
+import time
+import subprocess 
+# import threading
+# import os
+# import signal
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.cross_validation import KFold
@@ -18,24 +23,126 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.externals import joblib
+from sklearn.preprocessing import LabelEncoder
+from subprocess import STDOUT, check_output
 
-names = ["Nearest-Neighbors", "Linear-SVM", "RBF-SVM", "Decision-Tree",
-         "Random-Forest", "AdaBoost", "Naive-Bayes", "Linear-Discriminant-Analysis",
-         "Quadratic-Discriminant-Analysis"]
+class Data:
+
+    ## initialization function
+    def __init__(self, train):
+
+        self.train_raw = train
+        self.train = pd.DataFrame.copy(train)
+        
+    ## function for removing constant columns
+    def remove_constant_variables(self):
+        """Removes all columns with constant value.
+        """
+
+        # removing constant columns
+        for colname in self.train.columns:
+            if len(np.unique(self.train[colname].values.astype("str"))) == 1:
+                del self.train[colname]
+                #print("Column %s has zero variance and is removed from data" % (colname))
+
+        
+    ## function for converting two-element columns to binary
+    def convert_columns_to_binary(self):
+        """Converts all columns with two elements into a binary column.
+        """
+
+        change = False
+
+        # converting two-element columns to binary column
+        for colname in self.train.columns:
+            if len(np.unique(self.train[colname].values.astype("str"))) == 2:
+                if not all(np.unique(self.train[colname].values.astype("str")) == ["0","1"]):
+                    label = LabelEncoder()
+                    label.fit(list(self.train[colname].values.astype("str")))
+                    self.train[colname] = label.transform(list(self.train[colname].values.astype("str")))
+
+                    change = True
+                    #print("Column %s converted to binary" % (colname))
+
+       
+    ## function for encoding categorical variables
+    def encode_categories(self):
+        """Encodes categorical variables into one-hot or label.
+        """
+     
+        # extracting categorical variables
+        categorical_variables = []
+
+        for colname in self.train.columns:
+            if self.train[colname].dtype == "object":
+                categorical_variables.append(colname)
+                #print("Categorical Variable: %s, No. Categories: %d" % (colname, len(np.unique(self.train[colname].values.astype("str")))))
+
+        if len(categorical_variables) > 0:
+            #print("1: Label encode categorical variables\n2: Onehot encode categorical variables\n3: Remove categorical variables\n4: Do nothing")
+            
+            #while True:
+                #encoding = str(input("Choose any one: "))
+                #if encoding.lower() not in ["1", "2", "3", "4"]:
+                 #   print("Please choose one of the above: ")
+                #else:
+                 #   print("")
+                  #  break
+                   # break
+
+            #if encoding == "1":
+                label = LabelEncoder()
+                for colname in categorical_variables:
+                    label.fit(list(self.train[colname].values.astype("str")))
+                    self.train[colname] = label.transform(list(self.train[colname].values.astype("str")))
+             #   print("Label encoded the categorical variables")
+            #elif encoding == "2":
+             #   self.train = pd.get_dummies(self.train, columns=categorical_variables)
+              #  panel = pd.get_dummies(panel, columns=categorical_variables)
+               # panel = panel[self.train.columns]
+                #print("Onehot encoded the categorical variables")
+            #elif encoding == "3":
+             #   panel.drop(categorical_variables, axis=1, inplace=True)
+              #  print("Categorical variables removed from data")
+
+    ## function for cleaning data
+    def clean_data(self):
+        """Performs standard data cleaning functions
+        """
+
+                
+        self.remove_constant_variables()
+        self.convert_columns_to_binary()
+        self.encode_categories()
+
+        #print("Data is clean and ready!\n")
+        return (self.train)
+
+
+
+# names = ["Nearest-Neighbors", "Linear-SVM", "RBF-SVM", "Decision-Tree",
+#          "Random-Forest", "AdaBoost", "Naive-Bayes", "Linear-Discriminant-Analysis",
+#          "Quadratic-Discriminant-Analysis"]
+
+# classifiers = [
+#     KNeighborsClassifier(3),
+#     SVC(kernel="linear", C=0.025),
+#     SVC(gamma=2, C=1),
+#     DecisionTreeClassifier(max_depth=5),
+#     RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+#     AdaBoostClassifier(),
+#     GaussianNB(),
+#     LinearDiscriminantAnalysis(),
+#     QuadraticDiscriminantAnalysis()]
+names = [  "Decision-Tree"
+          
+         ]
 
 classifiers = [
-    KNeighborsClassifier(3),
-    SVC(kernel="linear", C=0.025),
-    SVC(gamma=2, C=1),
-    DecisionTreeClassifier(max_depth=5),
-    RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-    AdaBoostClassifier(),
-    GaussianNB(),
-    LinearDiscriminantAnalysis(),
-    QuadraticDiscriminantAnalysis()]
+   DecisionTreeClassifier(max_depth=5)]
+
 
 sep_dict = {"tab":"\t","comma":","}
-
 def getSep(x):
 	try:
 		return sep_dict[x]
@@ -62,10 +169,13 @@ if separator == "undefined":
 else:
     separator = getSep(separator)
     
-
 df = pd.read_csv(file_path, header=0, sep=separator)
-
-df2, targets = encode_target(df, df.columns[-1])
+cleaned_data = Data(df)
+df3 = cleaned_data.clean_data()
+print(df3.shape)
+#df4 = df3.fillna(method = 'bfill').fillna(method = 'ffill')
+df4 = df3.dropna(axis=0,how='any')
+df2, targets = encode_target(df4, df4.columns[-1])
 
 features = list(df2.columns[:-2])
 
@@ -76,8 +186,40 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.4)
 # print [dt.fit(X_train, y_train).score(X_test, y_test) for train, test in kfold]
 
 for name, clf in zip(names, classifiers):
+    #subprocess.call(clf.fit(X_train, y_train))
+    #command = clf.fit(X_train, y_train)
+    #p = subprocess.Popen('clf.fit(X_train, y_train)')
+    # p = subprocess.Popen("exec " + 'clf.fit(X_train, y_train)' , stdout=subprocess.PIPE, shell=True)
+    # t_end=time.time()+ 10
+    # if time.time() > t_end :
+    #     #os.killpg(os.getpgid(pro.pid), signal.SIGTERM)
+    #     p.terminate()
+    #     print("pass")
     clf.fit(X_train, y_train)
     score = clf.score(X_test, y_test)
-    #pkl_path = 
-    joblib.dump(clf, os.path.join(os.path.dirname(os.path.dirname(file_path)),'model',name+'.pkl'),compress=1)
+    joblib.dump(clf, os.path.join(os.path.dirname(os.path.dirname(file_path)),'model',name+'.pkl'),compress=1) 
     print name,score
+
+    '''class RunCmd(threading.Thread):
+                    def __init__(self, cmd, timeout):
+                        threading.Thread.__init__(self)
+                        self.cmd = cmd
+                        self.timeout = timeout
+            
+                    def run(self):
+                        self.p = sub.Popen(self.cmd)
+                        self.p.wait()
+            
+                    def Run(self):
+                        self.start()
+                        self.join(self.timeout)
+            
+                        if self.is_alive():
+                            self.p.kill()      #use self.p.kill() if process needs a kill -9
+                            self.join()
+            
+                RunCmd([clf.fit(X_train, y_train)], 60).Run()
+                score = clf.score(X_test, y_test)
+                #pkl_path = 
+                joblib.dump(clf, os.path.join(os.path.dirname(os.path.dirname(file_path)),'model',name+'.pkl'),compress=1) 
+                print name,score'''

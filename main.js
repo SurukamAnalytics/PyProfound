@@ -3,6 +3,8 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
+const windowManager = require('electron-window-manager');
+require('crash-reporter').start();
 var path = require('path');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -23,11 +25,11 @@ app.on('ready', function() {
   // Create the browser window.
   mainWindow = new BrowserWindow(
     {
-     /*height: 700,
-     width: 68,*/
+     /*height: 1600,*/
+     width: 750,
      icon:path.join(__dirname, '/app/img/surukam_logo.png'),
-     backgroundColor:"blue"
-     /*resizable: false*/
+     backgroundColor:"blue",
+     resizable: true
     });
 
   // and load the index.html of the app.
@@ -35,7 +37,7 @@ app.on('ready', function() {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
-
+  
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
@@ -43,4 +45,46 @@ app.on('ready', function() {
     // when you should delete the corresponding element.
     mainWindow = null;
   });
+  /*var mainWindow1 = windowManager.createNew('Main', 'Pyprofound', 'file://' + __dirname + '/app/index.html',false,
+    {
+      'height': 600,
+      'width': 750,
+      'icon':path.join(__dirname, '/app/img/surukam_logo.png'),
+      'backgroundColor':"blue",
+      'showDevTools': true,
+      'resizable': true
+    });
+    mainWindow1.open();
+    var mainWindow2 = windowManager.createNew('Login_page', 'Pyprofound Login_page', 'file://' + __dirname + '/app/login.html',false,
+    {
+      'height': 600,
+      'width': 750,
+      'icon':path.join(__dirname, '/app/img/surukam_logo.png'),
+      'backgroundColor':"blue",
+      'showDevTools': true,
+      'resizable': true
+    });
+    mainWindow2.open();*/
 });
+function clicked () {
+  var user = document.getElementById('username');
+  var pass = document.getElementById('password');
+   if (user.value) {
+
+    if (pass.value) {
+
+      window.alert("You are logged in as " + user.value);
+  
+  }else {
+
+       window.alert("Incorrect username or password!");
+    
+    }
+
+  } else {
+
+    window.alert("Incorrect username or password!");
+  
+  }
+
+}

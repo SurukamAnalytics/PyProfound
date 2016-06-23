@@ -1,7 +1,7 @@
 html,
 body {
     background: #0C7CA2;
-    height: 725px;
+    /*height: 725px;*/
     overflow: hidden;
     /*width: 368px;*/
     -webkit-app-region: drag;
@@ -11,7 +11,7 @@ body {
 #main {
     background: #1DCCEB;
     border-bottom: 1px solid #73E2F7;
-    height: 700px;
+    /*height: 700px;*/
 }
 
 .speaker {
@@ -79,8 +79,7 @@ body {
     background-repeat: no-repeat;
     display: inline-block;
     height: 50px;
-    left: -2px;
-    position: absolute;
+    position: relative;
     top: -40px;
     width: 30px;
     -webkit-app-region: no-drag;
@@ -111,7 +110,7 @@ body {
     background-size: 24px 24px;
     right: 6px;
 }
-ul#navmenu, ul.sub1, ul.sub2{
+/*ul#navmenu, ul.sub1, ul.sub2{
     list-style-type: none;
 }
 ul#navmenu li {
@@ -150,12 +149,12 @@ ul#navmenu ul.sub2{
     left: 100px;
     font-size: 20px;
 }
-ul#navmenu li:hover  .sub1{
+/*ul#navmenu li:hover  .sub1{
     display: block;
 }
 ul#navmenu .sub1 li:hover .sub2{
     display: block;
-}  
+} *
 .darrow{
     font-size: 11pt;
     position: absolute;
@@ -195,7 +194,7 @@ ul#navmenu > #sections_panel > #sections_panel1{
 ul#navmenu > #sections_panel2{
     position: absolute;
     height: 0px;
-    width: 300px;
+    width: 500px;
     background: #000;
     top: 35px;
     left: 0px;
@@ -204,10 +203,126 @@ ul#navmenu > #sections_panel2{
     z-index: 10000000000;
     transition: height 0.3s linear 0s;
 }
-/*ul#navmenu > #section_panel > div{
+ul#navmenu > #section_panel > div{
     background: #333;
     padding: :20px;
     height: 150px;
     margin: 10px;
     color: #FC0;
-}
+}*/
+#demo {
+        /*margin: 30px 0 50px 0;*/
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    
+    #demo .wrapper {
+        display: inline-block;
+        width: 150px;
+        margin: auto;
+        height: 20px;
+        position: relative;
+    }
+    
+    #demo .parent {
+        display: block;
+        cursor: pointer;
+        font-weight: bold;
+        z-index: 2;
+        position: relative;
+        -webkit-transition: border-radius .1s linear, background .1s linear, z-index 0s linear;
+        -webkit-transition-delay: .8s;
+        
+    }
+    
+    #demo .parent:hover,
+    #demo .content:hover ~ .parent {
+        /*background: #fff;*/
+        -webkit-transition-delay: 0s, 0s, 0s;
+    }
+    
+    #demo .content:hover ~ .parent {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        z-index: 0;
+    }
+    
+    #demo .content {
+        position: absolute;
+        top: 0;
+        display: block;
+        z-index: 1;
+        height: 0;
+        width: 250px;
+        padding-top: 30px;
+        -webkit-transition: height .5s ease;
+        -webkit-transition-delay: .4s;
+        /*border: 1px solid #777;*/
+        border-radius: 5px;
+        /*box-shadow: 0 1px 2px rgba(0,0,0,.4);*/
+    }
+    
+    #demo .wrapper:active .content {
+        height: 123px;
+        z-index: 3;
+        -webkit-transition-delay: 0s;
+    }
+    
+    #demo .content:hover {
+        height: 800px;
+        z-index: 3;
+        -webkit-transition-delay: 0s;
+    }
+    
+    
+    #demo .content ul {
+       /* background: #fff;*/
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    
+    #demo .content li:hover {
+        /*background: #1DCCEB;*/
+        color: #333;
+    }
+    
+    #demo .content li {
+        list-style: none;
+        text-align: left;
+        color: #888;
+        font-size: 14px;
+        line-height: 30px;
+        height: 30px;
+        /*padding-left: 10px;
+        border-top: 1px solid #ccc;*/
+    }
+    
+    #demo .content li:last-of-type {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    div .col-sm-4 #export_test {
+        margin-left: 25px;
+    }
+    div .col-sm-4 #export_train {
+        margin-left: 25px;
+    }
+    div .col-sm-4 #test {
+        margin-left: 25px;
+    }
+    div .col-sm-4 #classify {
+        margin-left: 25px;
+    }
+    textarea {
+
+        width:90%;
+        height: 600px;
+        margin-top: 20%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; 
+        margin-bottom: 15%;
+    }

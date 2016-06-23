@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js">
+        </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
+		<title> Pyprofound Form </title>
+		<style type="text/css">
+			h2{text-align: center; letter-spacing: 10px; font-size: .2in; background-color: rgb(0,0,100); color: lightblue; text-transform: uppercase; width: 500px; margin-left: 450px; margin-top: 100px}
+			span {color: red}
+			legend {font-variant: small-caps;font-weight: bold}
+			fieldset {text-align: center; width: 350px; font-family: Arial; background-color: lightblue; color: rgb(0,0,100); margin-left: 500px; margin-top: 100px}
+			label {text-align: center;  display: block; position: relative;line-height: 2; margin: 10px 0px;}
+			.text {position: absolute; margin-left: 20px; width: 15em; left: 80px}
+
+		</style>
+	</head>
+	<body>
+		<h2> Pyprofound Login Form</h2>
+		<form name="loginForm">
+			<fieldset>
+				<legend> Pyprofound Login From </legend>
+					<label>Username :<span>*</span><input type="text" id="username"/></label>
+					<label>Password :<span>*</span><input type="password" id="password"/></label>
+					<input type="reset" class="resetButton" /> 
+					<input type="submit" value="Login" class="submitButton" onclick="clicked()" />
+			</fieldset>
+		</form>
+		<script type="text/JavaScript" src = "../main.js"></script>
+	</body>
+</html>
