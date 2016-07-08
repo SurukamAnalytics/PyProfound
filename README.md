@@ -28,6 +28,13 @@ API:
    * separator:"tab" or "comma" 
    * file_path: full file path to the uploaded file
 
+## Related Projects
+
+1. [AutoML: taking the human expert out of the loop](http://www.automl.org/)
+2. [tpot](https://github.com/rhiever/tpot)
+3. [Orange](orange.biolab.si)
+
 ## License
 
 PyProfound is released under the [BSD 2-Clause license](https://github.com/SurukamAnalytics/pyprofound/blob/master/LICENSE.md).
+
